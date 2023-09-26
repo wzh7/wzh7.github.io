@@ -1,51 +1,33 @@
-defaultMarkdownHandler = 'goldmark'
-[asciidocExt]
-backend = 'html5'
-extensions = []
-failureLevel = 'fatal'
-noHeaderOrFooter = true
-preserveTOC = false
-safeMode = 'unsafe'
-sectionNumbers = false
-trace = false
-verbose = false
-workingFolderCurrent = false
-[asciidocExt.attributes]
-[goldmark]
-[markup.goldmark.extensions]
-definitionList = true
-footnote = true
-linkify = true
-linkifyProtocol = 'https'
-strikethrough = true
-table = true
-taskList = true
-typographer = true
-[goldmark.parser]
-autoHeadingID = true
-autoHeadingIDType = 'github'
-[goldmark.parser.attribute]
-block = false
-title = true
-[goldmark.renderer]
-hardWraps = false
-unsafe = true
-xhtml = false
-[highlight]
-anchorLineNos = false
-codeFences = true
-guessSyntax = true
-hl_Lines = ''
-hl_inline = false
-lineAnchors = ''
-lineNoStart = 1
-lineNos = true
-lineNumbersInTable = true
-noClasses = false
-noHl = false
-style = 'monokai'
-tabWidth = 4
-[tableOfContents]
-endLevel = 3
-ordered = false
-startLevel = 2
+# Markup related configuration in Hugo
+# Hugo 解析文档的配置
+  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+  # 语法高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
+  [highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+    # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
+    noClasses = false
+  # Goldmark is from Hugo 0.60 the default library used for Markdown
+  # Goldmark 是 Hugo 0.60 以来的默认 Markdown 解析库
+  [goldmark]
+    [goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [goldmark.renderer]
+      # whether to use HTML tags directly in the document
+      # 是否在文档中直接使用 HTML 标签
+      unsafe = true
+  # Table Of Contents settings
+  # 目录设置
+  [tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
